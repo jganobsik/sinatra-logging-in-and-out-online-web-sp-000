@@ -11,7 +11,9 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/login' do
+  session[:user_id] = @user.id
 
+  redirect '/account'
   end
 
   get '/account' do
@@ -19,7 +21,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/logout' do
-
+  session.clear
   end
 
 
